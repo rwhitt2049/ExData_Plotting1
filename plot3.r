@@ -9,12 +9,12 @@ plot3 <- function(){
     # Convert date to date class 
     date_time <- paste(data$Date,data$Time, sep = " ")
     date_time <- strptime(date_time,format = "%d/%m/%Y %H:%M:%S")
-    data[,1]<-as.Date(date_time)
+    
     
     # Create plots and add legend
-    with(data, plot(Date,Sub_metering_1,ylab = "Energy sub metering",xlab = "",type = "l"))
-    with(data, points(Date,Sub_metering_2, col = "red",type = "l"))
-    with(data, points(Date,Sub_metering_3, col = "blue",type = "l"))
+    plot(date_time,Sub_metering_1,ylab = "Energy sub metering",xlab = "",type = "l")
+    points(date_time,Sub_metering_2, col = "red",type = "l")
+    points(date_time,Sub_metering_3, col = "blue",type = "l")
     legend("topright", pch = 1, col = c("black","blue", "red"), legend = c("Sub_metering_1","Sub_metering_2","Sub_metering_3"))
     
     

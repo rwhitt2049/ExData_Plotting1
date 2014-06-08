@@ -9,10 +9,10 @@ plot2 <- function(){
     
     date_time <- paste(data$Date,data$Time, sep = " ")
     date_time <- strptime(date_time,format = "%d/%m/%Y %H:%M:%S")
-    data[,1]<-as.Date(date_time)
+    
     
     # Plot global active power by day
-    with(data, plot(Date,Global_active_power, type = "l",xlab ="",ylab = "Global Active Power (kw)"))
+    plot(date_time,data$Global_active_power, type = "l",xlab ="",ylab = "Global Active Power (kw)")
    
     
     # Save plot as a .png bitmap

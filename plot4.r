@@ -14,19 +14,19 @@ plot4 <- function(){
     # Create new parameter for a 2x2 plot
     old.par <- par(mfrow=c(2, 2))
         # Plot 1
-        with(data, plot(Date,Global_active_power, type = "l",xlab ="",ylab = "Global Active Power (kw)"))
+        plot(date_time,Global_active_power, type = "l",xlab ="",ylab = "Global Active Power (kw)")
         
         # Plot 2
-        with(data, plot(Date,Voltage, type = "l",xlab ="datetime",ylab = "Voltage"))
+        plot(date_time,Voltage, type = "l",xlab ="datetime",ylab = "Voltage")
         
         # Plot 3
-        with(data, plot(Date,Sub_metering_1,ylab = "Energy sub metering",xlab = "",type = "l"))
-        with(data, points(Date,Sub_metering_2, col = "red",type = "l"))
-        with(data, points(Date,Sub_metering_3, col = "blue",type = "l"))
+        plot(date_time,Sub_metering_1,ylab = "Energy sub metering",xlab = "",type = "l")
+        points(date_time,Sub_metering_2, col = "red",type = "l")
+        points(date_time,Sub_metering_3, col = "blue",type = "l")
         legend("topright", pch = "-", col = c("black","blue", "red"), legend = c("Sub_metering_1","Sub_metering_2","Sub_metering_3"),cex = 0.5)
         
         # Plot 4
-        with(data, plot(Date,Global_reactive_power, type = "l",xlab ="datetime"))
+        plot(date_time,Global_reactive_power, type = "l",xlab ="datetime")
         
     # Close the new parameter
     par(old.par)
